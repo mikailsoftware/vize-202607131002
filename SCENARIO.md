@@ -1,5 +1,7 @@
 # Kura #3: Logistics and Delivery x IoT Sensor Network x Anomaly Detection
 
+[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md)
+
 **Öğrenci No:** 202607131002  
 **Ders:** Veritabanı Yönetim Sistemleri (PostgreSQL)  
 **Senaryo Kurası:** Kura #3 (Lojistik ve Teslimat x IoT Sensör Ağı x Anomali Tespiti)  
