@@ -17,3 +17,27 @@ Dönem boyunca geliştirilecek tüm SQL sorguları ve veri modelleri doğrudan b
 ## 3. Hedef Kullanıcı Profili
 - **Soğuk Zincir Kalite Denetçileri:** Kritik sıcaklık ihlali yapan sevkiyatları incelemek.
 - **Lojistik ve Filo Yöneticileri:** Hangi sensör bölmelerinin (örn. kapıya yakın olan Rear bölmesi) yalıtım problemi yaşadığını saptamak.
+
+## 4. Hafta 3 Tablo ve Sütun Adayları
+
+### Tablo 1: `sensors` (Boyut Tablosu)
+Konteyner ve depo içerisindeki fiziksel IoT sensörlerinin künyesini tutar.
+- `sensor_id` (VARCHAR(50), PK): Sensörün benzersiz kodu (örn. Front_Top, Rear_Bottom).
+- `compartment_zone` (VARCHAR(20)): Bulunduğu bölme (Front, Middle, Rear).
+- `vertical_level` (VARCHAR(20)): Dikey konumu (Top, Middle, Bottom).
+- `installed_at` (TIMESTAMP): Sensörün devreye alınma tarihi.
+
+### Tablo 2: `measurements` (Olay/Telemetri Tablosu)
+Sensörlerden gelen zaman serisi sıcaklık ölçümlerini saklar.
+- `id` (BIGSERIAL, PK): Benzersiz ölçüm kayıt numarası.
+- `shipment_id` (VARCHAR(10)): Sevkiyat referansı (S1, S2, S3, S4, S5, S6).
+- `sensor_id` (VARCHAR(50), FK): Ölçümü yapan sensör kodu.
+- `temp_c` (NUMERIC(5,2)): Ölçülen sıcaklık değeri (°C). Hatalı donanım okumalarında NULL.
+- `measurement_time` (TIMESTAMP): Ölçümün alındığı zaman damgası.
+
+### Tablo 3: `anomaly_thresholds` (Parametre Tablosu)
+Güvenli sıcaklık sınırlarını ve ürün kurallarını dinamik olarak saklar.
+- `rule_id` (SERIAL, PK): Kural kimliği.
+- `product_name` (VARCHAR(50)): İzlenen ürün türü (Çilek).
+- `min_safe_temp` (NUMERIC(4,2)): Kabul edilebilir en düşük sıcaklık (0.0°C).
+- `max_safe_temp` (NUMERIC(4,2)): Kabul edilebilir en yüksek sıcaklık (4.0°C).
