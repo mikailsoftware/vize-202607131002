@@ -1,26 +1,24 @@
 from pathlib import Path
 import pandas as pd
 
-# Bu Python dosyasının bulunduğu klasör
-script_dir = Path(__file__).resolve().parent
+# 1. Proje ana dizinini betiğin kendi konumuna göre dinamik bul
+project_root = Path(__file__).parent.parent
+data_dir = project_root / "data" / "original"
 
-# python klasörünün bir üstü: vize-202607131002
-repo_root = script_dir.parent
+# 2. Ham Parquet dosyalarını listele ve sırala
+parquet_files = sorted(list(data_dir.glob("*.parquet")))
 
-# Gerçek veri klasörü
-data_dir = repo_root / "data" / "original"
+print(f"Hedef Klasor: {data_dir}")
+print(f"Bulunan Dosya Sayisi: {len(parquet_files)}\n" + "-" * 45)
 
-# Parquet dosyalarını bul
-parquet_files = sorted(data_dir.glob("*.parquet"))
+total_rows = 0
+for f in parquet_files:
+    df = pd.read_parquet(f)
+    rows, cols = len(df), len(df.columns)
+    total_rows += rows
+    print(f"Dosya: {f.name} -> Satir: {rows} | Sutun: {cols}")
 
-print(f"Target directory: {data_dir}")
-print(f"Total files found: {len(parquet_files)}")
-
-for file_path in parquet_files:
-    df = pd.read_parquet(file_path)
-
-    print(
-        f"File: {file_path.name} | "
-        f"Row Count: {len(df)} | "
-        f"Column Count: {len(df.columns)}"
-    )
+print("-" * 45)
+print(f"GENEL TOPLAM SATIR SAYISI: {total_rows}")
+if total_rows == 14398:
+    print("DOGRULAMA BASARILI: 14.398 veri satiri eksiksiz okundu.")
