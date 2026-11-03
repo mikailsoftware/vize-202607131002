@@ -43,3 +43,24 @@ Güvenli sıcaklık sınırlarını ve ürün kurallarını dinamik olarak sakla
 - `product_name` (VARCHAR(50)): İzlenen ürün türü (Çilek).
 - `min_safe_temp` (NUMERIC(4,2)): Kabul edilebilir en düşük sıcaklık (0.0°C).
 - `max_safe_temp` (NUMERIC(4,2)): Kabul edilebilir en yüksek sıcaklık (4.0°C).
+
+
+
+## 5. Yapay Zekâ Bileşeni Stratejisi (Dönem Sonu Hafta 11 Mimarisi)
+
+### 5.1. Anomali Türlerinin Mantıksal Ayrımı (Kritik Kural)
+Bu projede çilek soğuk zinciri izleme sürecinde iki farklı anomali türü veritabanı seviyesinde birbirinden kesin çizgilerle ayrılacaktır:
+
+1. Donanım Arızası (SENSOR_FAULT):
+   - Sensör kablosunun kopması, pilinin bitmesi veya kablosuz iletimin kesilmesidir.
+   - Veritabanında NULL (ham veride -999.00) okumalarıyla temsil edilir.
+   - Önemi: Bu durum bir "ürün bozulması" değil, doğrudan cihaz arızasıdır. Meyvenin donduğunu ya da yandığını göstermez.
+
+2. Termal Soğuk Zincir İhlalleri (Biyolojik Risk):
+   - Sensör sağlamdır ancak kamyon içi sıcaklık güvenli 0.0°C - 4.0°C aralığının dışına çıkmıştır.
+   - Donma Riski (COLD_ANOMALY): Sıcaklık < 0.0°C (Çilek hücreleri donar, hücre zarı çatlar ve doku ölümü gerçekleşir).
+   - Orta Düzey Isınma (MODERATE_HEAT_ANOMALY): 4.0°C < Sıcaklık <= 8.0°C (Solunum hızı artar, bakteri ve küf aktivitesi başlar).
+   - Kritik Isınma İhlali (CRITICAL_HEAT_BREACH): Sıcaklık > 8.0°C (Geri dönüşsüz çürüme ve tam ürün kaybı).
+
+### 5.2. Dinamik VIEW ile Veritabanı Otomasyonu (vw_ai_anomaly_logs)
+Hafta 11 kapsamında statik bir Python betiği yerine veritabanı içerisinde çalışan dinamik bir VIEW (vw_ai_anomaly_logs) mimarisi kurulacaktır. Canlı ölçümler anomaly_thresholds tablosuyla eşleştirilerek her ölçüm anında otomatik olarak sınıflandırılacaktır (NORMAL, COLD_ANOMALY, MODERATE_HEAT_ANOMALY, CRITICAL_HEAT_BREACH, SENSOR_FAULT).

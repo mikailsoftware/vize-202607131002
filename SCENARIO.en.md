@@ -52,3 +52,25 @@ Dynamically stores safe temperature limits and product rules.
 - `product_name` (VARCHAR(50)): Type of monitored product (Strawberry).
 - `min_safe_temp` (NUMERIC(4,2)): Lowest acceptable temperature (0.0°C).
 - `max_safe_temp` (NUMERIC(4,2)): Highest acceptable temperature (4.0°C).
+
+
+## 5. AI Component Strategy (End-of-Term Week 11 Architecture)
+
+### 5.1. Logical Separation of Anomaly Types (Critical Rule)
+In this strawberry cold-chain monitoring system, two distinct classes of anomalies are strictly decoupled at the database level:
+
+1. Hardware Sensor Fault (SENSOR_FAULT):
+   - Physical sensor disconnection, telemetry transmission packet loss, or depleted battery voltage.
+   - Identified by NULL values (originally recorded as -999.00 hardware error codes in raw telemetry).
+   - Domain Significance: This is an equipment communication failure, NOT biological strawberry spoilage. It indicates missing telemetry.
+
+2. Thermal Cold-Chain Breaches (Biological Spoilage Risk):
+   - The sensor is functioning properly, but the measured temperature breaches the established safe threshold of 0.0°C to 4.0°C.
+   - Cold Anomaly (COLD_ANOMALY): temp_c < 0.0°C. Risk of freezing injury, cell wall collapse, and loss of fruit texture.
+   - Moderate Heat Anomaly (MODERATE_HEAT_ANOMALY): 4.0°C < temp_c <= 8.0°C. Accelerated respiration rate, mold germination, and reduced shelf-life.
+   - Critical Heat Breach (CRITICAL_HEAT_BREACH): temp_c > 8.0°C. Severe thermal abuse resulting in irreversible decay and product write-off.
+
+### 5.2. Database Automation via Dynamic View (vw_ai_anomaly_logs)
+Rather than relying on static scripts, the Week 11 AI component integrates directly within PostgreSQL using a dynamic view architecture:
+- A parameter table (anomaly_thresholds) maintains active safe boundaries per cargo type.
+- A virtual classification view (vw_ai_anomaly_logs) dynamically cross-joins measurements with these thresholds, automatically tagging each reading with an ai_classification label (NORMAL, COLD_ANOMALY, MODERATE_HEAT_ANOMALY, CRITICAL_HEAT_BREACH, SENSOR_FAULT).
