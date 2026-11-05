@@ -9,3 +9,12 @@ FROM measurements
 WHERE temp_c > 4.0
 ORDER BY temp_c DESC
 LIMIT 10;
+
+-- HAFTA 4: DONANIM HATA KODU TEMIZLEME (-999 -> NULL)
+UPDATE measurements
+SET temp_c = NULL
+WHERE temp_c = -999.00;
+
+SELECT COUNT(*) AS toplam_null_yapilan_kayit
+FROM measurements
+WHERE temp_c IS NULL;
