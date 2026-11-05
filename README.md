@@ -1,6 +1,6 @@
 # Çilek IoT Soğuk Zinciri Telemetri Analizi
 
-[🇹🇷 Türkçe](README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
+[🇹🇷 Türkçe](README.md) | [🇬🇧 English](readme/README.en.md) | [🇩🇪 Deutsch](readme/README.de.md) | [🇫🇷 Français](readme/README.fr.md) | [🇮🇹 Italiano](readme/README.it.md) | [🇪🇸 Español](readme/README.es.md) | [🇨🇳 中文](readme/README.zh-CN.md)
 
 Bu proje, S1-S6 sevkiyatlarında dokuz IoT sensöründen toplanan sıcaklık
 telemetrisini ilişkisel bir yapıya dönüştürür ve PostgreSQL üzerinde temel
@@ -16,6 +16,9 @@ bu README teknik veri akışını ve çalıştırma adımlarını açıklar.
 - **Güvenli sıcaklık aralığı:** 0.0°C-4.0°C
 - **Hedef veritabanı:** PostgreSQL
 - **Ders kapsamı:** Vize için Hafta 3-5 veri hazırlama, tablo tasarımı ve SQL analizleri
+
+Detaylı kaynak, lisans, kalite kuralları ve dosya yapısı için
+[veri kartına](data/dataREADME.md) bakın.
 
 AI tabanlı bir model veya tamamlanmış bir AI özelliği bu sürümün parçası
 değildir. Kullanılan araçların ve öğrencinin katkısının açıklaması için
