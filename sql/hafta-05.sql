@@ -41,3 +41,13 @@ FROM measurements
 WHERE temp_c < 0.0 OR temp_c > 4.0
 GROUP BY EXTRACT(HOUR FROM measurement_time)
 ORDER BY anomali_sayisi DESC;
+
+-- SORGU 5: COALESCE ile Eksik Veri Doldurma (Imputation) Etki Analizi
+SELECT 
+    sensor_id,
+    ROUND(AVG(temp_c), 3) AS gercek_ham_ortalama,
+    ROUND(AVG(COALESCE(temp_c, 2.0)), 3) AS doldurulmus_ortalama,
+    ROUND(AVG(temp_c) - AVG(COALESCE(temp_c, 2.0)), 3) AS sapma_farki
+FROM measurements
+GROUP BY sensor_id
+ORDER BY ABS(AVG(temp_c) - AVG(COALESCE(temp_c, 2.0))) DESC;
