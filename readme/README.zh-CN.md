@@ -1,11 +1,11 @@
 # 草莓物联网冷链遥测分析
 
-[🇹🇷 Türkçe](README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
+[🇹🇷 Türkçe](../README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
 
 本项目将 S1-S6 批次中九个物联网传感器采集的温度遥测数据转换为关系型
 结构，并准备在 PostgreSQL 中进行数据质量和异常分析。运营故事、问题定义
-和核心研究问题请参阅 [SCENARIO.md](SCENARIO.md) 及
-[SCENARIO.en.md](SCENARIO.en.md)；本 README 只说明技术流程。
+和核心研究问题请参阅 [SCENARIO.md](../SCENARIO.md) 及
+[SCENARIO.en.md](../scenario/SCENARIO.en.md)；本 README 只说明技术流程。
 
 ## 项目范围
 
@@ -17,7 +17,7 @@
 - **课程范围：** 期中项目第 3-5 周
 
 当前版本不包含已经完成的 AI 模型。AI 工具使用和学生贡献请见
-[AI_BEYAN.md](AI_BEYAN.md)。
+[AI_BEYAN.md](../AI_BEYAN.md)。
 
 ## 数据来源和目录
 

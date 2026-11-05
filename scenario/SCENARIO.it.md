@@ -1,12 +1,12 @@
 # Scenario 3: logistica e consegne x rete di sensori IoT x rilevamento anomalie
 
-[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
+[🇹🇷 Türkçe](../SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
 
 **Studente:** 202607131002  
 **Corso:** sistemi di gestione dei database (PostgreSQL)
 
 > Questo documento definisce storia, domande analitiche e confini del progetto.
-> I dettagli tecnici sono in [README.md](README.md).
+> I dettagli tecnici sono in [README.md](../README.md).
 
 ## 1. Storia operativa e problema
 
@@ -79,7 +79,7 @@ La componente IA è pianificata per la Week 11 e non è una funzione completata
 nella prova intermedia. Le classi previste sono `NORMAL`, `SENSOR_FAULT`,
 `COLD_ANOMALY`, `MODERATE_HEAT_ANOMALY` e `CRITICAL_HEAT_BREACH`. Una futura
 vista `vw_ai_anomaly_logs` potrà usare `anomaly_thresholds`. Vedere
-[AI_BEYAN.md](AI_BEYAN.md).
+[AI_BEYAN.md](../AI_BEYAN.md).
 
 ## 9. Confine tra prova intermedia e finale
 

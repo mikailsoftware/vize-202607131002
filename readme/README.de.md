@@ -1,12 +1,12 @@
 # IoT-Telemetrieanalyse der Erdbeer-Kühlkette
 
-[🇹🇷 Türkçe](README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
+[🇹🇷 Türkçe](../README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
 
 Dieses Projekt überführt Temperaturdaten von neun IoT-Sensoren aus den
 Sendungen S1-S6 in eine relationale Struktur und bereitet sie für
 Datenqualitäts- und Anomalieanalysen in PostgreSQL auf. Die operative
 Geschichte, die Problemdefinition und die zentrale Forschungsfrage stehen in
-[SCENARIO.md](SCENARIO.md) bzw. [SCENARIO.en.md](SCENARIO.en.md); diese Datei
+[SCENARIO.md](../SCENARIO.md) bzw. [SCENARIO.en.md](../scenario/SCENARIO.en.md); diese Datei
 konzentriert sich auf den technischen Ablauf.
 
 ## Umfang
@@ -19,7 +19,7 @@ konzentriert sich auf den technischen Ablauf.
 - **Kursumfang:** Zwischenprüfung, Wochen 3-5
 
 Ein fertiges KI-Modell ist nicht Bestandteil dieser Version. Die Erklärung zur
-KI-Nutzung steht in [AI_BEYAN.md](AI_BEYAN.md).
+KI-Nutzung steht in [AI_BEYAN.md](../AI_BEYAN.md).
 
 ## Datenquelle und Struktur
 

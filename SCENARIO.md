@@ -1,6 +1,6 @@
 # Kura #3: Lojistik ve Teslimat x IoT Sensör Ağı x Anomali Tespiti
 
-[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
+[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](scenario/SCENARIO.en.md) | [🇩🇪 Deutsch](scenario/SCENARIO.de.md) | [🇫🇷 Français](scenario/SCENARIO.fr.md) | [🇮🇹 Italiano](scenario/SCENARIO.it.md) | [🇪🇸 Español](scenario/SCENARIO.es.md) | [🇨🇳 中文](scenario/SCENARIO.zh-CN.md)
 
 **Öğrenci No:** 202607131002  
 **Ders:** Veritabanı Yönetim Sistemleri (PostgreSQL)  

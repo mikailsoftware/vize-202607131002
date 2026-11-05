@@ -1,12 +1,12 @@
 # 场景 3：物流配送 x 物联网传感器网络 x 异常检测
 
-[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
+[🇹🇷 Türkçe](../SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
 
 **学生编号：** 202607131002  
 **课程：** 数据库管理系统（PostgreSQL）
 
 > 本文件说明运营故事、分析问题和项目边界。技术运行细节请参阅
-> [README.md](README.md)。
+> [README.md](../README.md)。
 
 ## 1. 运营故事和问题
 
@@ -72,7 +72,7 @@ AI 组件是 Week 11 的期末规划，在当前期中交付中并未完成。�
 包括 `NORMAL`、`SENSOR_FAULT`、`COLD_ANOMALY`、
 `MODERATE_HEAT_ANOMALY` 和 `CRITICAL_HEAT_BREACH`。未来的
 `vw_ai_anomaly_logs` 视图可以读取 `anomaly_thresholds` 中的规则。
-AI 使用说明请参阅 [AI_BEYAN.md](AI_BEYAN.md)。
+AI 使用说明请参阅 [AI_BEYAN.md](../AI_BEYAN.md)。
 
 ## 9. 期中与期末范围
 

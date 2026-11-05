@@ -1,11 +1,11 @@
 # Analisi della telemetria IoT della catena del freddo delle fragole
 
-[🇹🇷 Türkçe](README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
+[🇹🇷 Türkçe](../README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
 
 Il progetto trasforma i dati di temperatura di nove sensori IoT delle
 spedizioni S1-S6 in una struttura relazionale e li prepara per le analisi di
 qualità e anomalie in PostgreSQL. La storia operativa e la domanda principale
-sono in [SCENARIO.md](SCENARIO.md) e [SCENARIO.en.md](SCENARIO.en.md); questo
+sono in [SCENARIO.md](../SCENARIO.md) e [SCENARIO.en.md](../scenario/SCENARIO.en.md); questo
 README descrive il flusso tecnico.
 
 ## Ambito
@@ -18,7 +18,7 @@ README descrive il flusso tecnico.
 - **Corso:** settimane 3-5 della prova intermedia
 
 Questa versione non include un modello di IA completato. La dichiarazione
-sull'uso dell'IA è in [AI_BEYAN.md](AI_BEYAN.md).
+sull'uso dell'IA è in [AI_BEYAN.md](../AI_BEYAN.md).
 
 ## Fonte e struttura
 

@@ -1,12 +1,12 @@
 # Análisis de telemetría IoT de la cadena de frío de fresas
 
-[🇹🇷 Türkçe](README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
+[🇹🇷 Türkçe](../README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
 
 Este proyecto transforma las mediciones de temperatura de nueve sensores IoT
 de los envíos S1-S6 en una estructura relacional y las prepara para análisis
 de calidad y anomalías en PostgreSQL. La historia operativa y la pregunta
-principal están en [SCENARIO.md](SCENARIO.md) y
-[SCENARIO.en.md](SCENARIO.en.md); este README se centra en el flujo técnico.
+principal están en [SCENARIO.md](../SCENARIO.md) y
+[SCENARIO.en.md](../scenario/SCENARIO.en.md); este README se centra en el flujo técnico.
 
 ## Alcance
 
@@ -18,7 +18,7 @@ principal están en [SCENARIO.md](SCENARIO.md) y
 - **Curso:** semanas 3-5 del examen parcial
 
 Esta versión no incluye un modelo de IA terminado. La declaración de uso de
-IA está disponible en [AI_BEYAN.md](AI_BEYAN.md).
+IA está disponible en [AI_BEYAN.md](../AI_BEYAN.md).
 
 ## Fuente y estructura
 

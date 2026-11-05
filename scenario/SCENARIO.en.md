@@ -1,6 +1,6 @@
 # Draw #3: Logistics and Delivery x IoT Sensor Network x Anomaly Detection
 
-[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
+[🇹🇷 Türkçe](../SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
 
 **Student No:** 202607131002  
 **Course:** Database Management Systems (PostgreSQL)  
@@ -8,7 +8,7 @@
 
 > This file defines the operational story, analytical questions, and course
 > boundaries. For commands, repository layout, and reproduction steps, see
-> [README.en.md](README.en.md).
+> [README.en.md](../readme/README.en.md).
 
 ## 1. Operational story and problem
 
@@ -148,7 +148,7 @@ The planned separation is:
 In future work, a dynamic `vw_ai_anomaly_logs` view backed by
 `anomaly_thresholds` could classify each measurement. This is a target design,
 not a completed AI feature. The AI-use disclosure is in
-[AI_BEYAN.md](AI_BEYAN.md).
+[AI_BEYAN.md](../AI_BEYAN.md).
 
 ## 9. Midterm/final boundary
 

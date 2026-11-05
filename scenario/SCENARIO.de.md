@@ -1,13 +1,13 @@
 # Szenario 3: Logistik und Lieferung x IoT-Sensornetz x Anomalieerkennung
 
-[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
+[🇹🇷 Türkçe](../SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
 
 **Studierendennummer:** 202607131002  
 **Kurs:** Datenbankmanagement (PostgreSQL)  
 **Szenario:** Logistik und Lieferung x IoT-Sensornetz x Anomalieerkennung
 
 > Diese Datei beschreibt Geschichte, Analysefragen und Abgrenzung. Für
-> technische Befehle und die Reproduktion siehe [README.md](README.md).
+> technische Befehle und die Reproduktion siehe [README.md](../README.md).
 
 ## 1. Betriebsgeschichte und Problem
 
@@ -106,7 +106,7 @@ nicht fertig. Vorgesehene Klassen sind `NORMAL`, `SENSOR_FAULT`,
 `COLD_ANOMALY`, `MODERATE_HEAT_ANOMALY` und `CRITICAL_HEAT_BREACH`.
 Eine künftige dynamische Sicht `vw_ai_anomaly_logs` könnte die Regeln aus
 `anomaly_thresholds` verwenden. Die KI-Erklärung steht in
-[AI_BEYAN.md](AI_BEYAN.md).
+[AI_BEYAN.md](../AI_BEYAN.md).
 
 ## 9. Zwischenprüfung und Finale
 

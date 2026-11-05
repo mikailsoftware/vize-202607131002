@@ -1,12 +1,12 @@
 # Analyse de la télémétrie IoT de la chaîne du froid des fraises
 
-[🇹🇷 Türkçe](README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
+[🇹🇷 Türkçe](../README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
 
 Ce projet transforme les mesures de température de neuf capteurs IoT des
 expéditions S1-S6 en structure relationnelle, puis les prépare pour des
 analyses de qualité et d'anomalies dans PostgreSQL. L'histoire opérationnelle
-et la question principale sont décrites dans [SCENARIO.md](SCENARIO.md) et
-[SCENARIO.en.md](SCENARIO.en.md); ce fichier présente le flux technique.
+et la question principale sont décrites dans [SCENARIO.md](../SCENARIO.md) et
+[SCENARIO.en.md](../scenario/SCENARIO.en.md); ce fichier présente le flux technique.
 
 ## Périmètre
 
@@ -18,7 +18,7 @@ et la question principale sont décrites dans [SCENARIO.md](SCENARIO.md) et
 - **Cours :** semaines 3 à 5 de l'examen intermédiaire
 
 Aucun modèle d'IA terminé n'est inclus dans cette version. Voir
-[AI_BEYAN.md](AI_BEYAN.md) pour la déclaration d'utilisation de l'IA.
+[AI_BEYAN.md](../AI_BEYAN.md) pour la déclaration d'utilisation de l'IA.
 
 ## Source et organisation
 

@@ -1,12 +1,12 @@
 # Escenario 3: logística y entregas x red de sensores IoT x detección de anomalías
 
-[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
+[🇹🇷 Türkçe](../SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
 
 **Estudiante:** 202607131002  
 **Curso:** sistemas de gestión de bases de datos (PostgreSQL)
 
 > Este documento define la historia, las preguntas analíticas y los límites
-> del proyecto. Los detalles técnicos están en [README.md](README.md).
+> del proyecto. Los detalles técnicos están en [README.md](../README.md).
 
 ## 1. Historia operativa y problema
 
@@ -78,7 +78,7 @@ El componente de IA está planificado para la Week 11 y no está terminado en
 la entrega del parcial. Las clases previstas son `NORMAL`, `SENSOR_FAULT`,
 `COLD_ANOMALY`, `MODERATE_HEAT_ANOMALY` y `CRITICAL_HEAT_BREACH`. Una vista
 futura `vw_ai_anomaly_logs` podría utilizar `anomaly_thresholds`. Consulta
-[AI_BEYAN.md](AI_BEYAN.md).
+[AI_BEYAN.md](../AI_BEYAN.md).
 
 ## 9. Límite entre parcial y final
 

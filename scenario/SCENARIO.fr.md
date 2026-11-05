@@ -1,13 +1,13 @@
 # Scénario 3 : logistique et livraison x réseau de capteurs IoT x détection d'anomalies
 
-[🇹🇷 Türkçe](SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
+[🇹🇷 Türkçe](../SCENARIO.md) | [🇬🇧 English](SCENARIO.en.md) | [🇩🇪 Deutsch](SCENARIO.de.md) | [🇫🇷 Français](SCENARIO.fr.md) | [🇮🇹 Italiano](SCENARIO.it.md) | [🇪🇸 Español](SCENARIO.es.md) | [🇨🇳 中文](SCENARIO.zh-CN.md)
 
 **Étudiant :** 202607131002  
 **Cours :** systèmes de gestion de bases de données (PostgreSQL)
 
 > Ce fichier présente l'histoire opérationnelle, les questions d'analyse et
 > les limites du projet. Les détails d'exécution sont dans
-> [README.md](README.md).
+> [README.md](../README.md).
 
 ## 1. Histoire opérationnelle et problème
 
@@ -81,7 +81,7 @@ La composante IA est une architecture planifiée pour la Week 11, pas une
 fonction terminée de cette évaluation intermédiaire. Les classes prévues sont
 `NORMAL`, `SENSOR_FAULT`, `COLD_ANOMALY`, `MODERATE_HEAT_ANOMALY` et
 `CRITICAL_HEAT_BREACH`. Une vue future `vw_ai_anomaly_logs` pourrait utiliser
-`anomaly_thresholds`. Voir [AI_BEYAN.md](AI_BEYAN.md).
+`anomaly_thresholds`. Voir [AI_BEYAN.md](../AI_BEYAN.md).
 
 ## 9. Limite entre évaluation et finale
 

@@ -1,11 +1,11 @@
 # Strawberry IoT Cold Chain Telemetry Analysis
 
-[🇹🇷 Türkçe](README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
+[🇹🇷 Türkçe](../README.md) | [🇬🇧 English](README.en.md) | [🇩🇪 Deutsch](README.de.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇪🇸 Español](README.es.md) | [🇨🇳 中文](README.zh-CN.md)
 
 This project converts temperature telemetry from nine IoT sensors across
 shipments S1-S6 into a relational structure and prepares it for data-quality
 and anomaly analysis in PostgreSQL. The operational story, problem statement,
-and main research question are kept in [SCENARIO.en.md](SCENARIO.en.md);
+and main research question are kept in [SCENARIO.en.md](../scenario/SCENARIO.en.md);
 this README focuses on the technical pipeline and how to reproduce it.
 
 ## Scope
@@ -18,7 +18,7 @@ this README focuses on the technical pipeline and how to reproduce it.
 - **Course scope:** Midterm Weeks 3-5: preparation, schema design, and SQL analysis
 
 No AI model or finished AI feature is part of this version. See
-[AI_BEYAN.md](AI_BEYAN.md) for the disclosure of AI-assisted learning and
+[AI_BEYAN.md](../AI_BEYAN.md) for the disclosure of AI-assisted learning and
 the student's contribution.
 
 ## Data source and repository layout
