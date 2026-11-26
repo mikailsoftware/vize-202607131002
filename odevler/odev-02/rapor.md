@@ -8,9 +8,9 @@
 
 **Kullandığım veritabanı:** ☐ `llm_ops`  ☒ `robot_fleet`
 
-**PR bağlantısı:** `https://github.com/` ______________________________________
+**PR bağlantısı:** `https://github.com/`mikailsoftware/vize-202607131002/pull/2
 
-**Commit sayısı:** ______
+**Commit sayısı:** 5
 
 ---
 
