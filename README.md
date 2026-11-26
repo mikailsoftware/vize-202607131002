@@ -108,3 +108,80 @@ PostgreSQL istemcisiyle, aktarım betiğinden sonra çalıştırın.
 - Eksik veya geçersiz ölçümler SQL tarafında `NULL` olarak saklanır.
 - 0.0°C-4.0°C güvenli aralık, 8.0°C üzeri ise kritik kayıp eşiği olarak
   değerlendirilir; ayrıntılı yorumlar SQL sorgularında yapılır.
+
+
+  ## Veri Modeli
+
+### 2.1 Güncel ERD
+
+Vizede `SCENARIO.md` içinde üç tablo adayı vardı (`sensors`, `measurements`, `anomaly_thresholds`). Bu ödevde `shipments` tablosunu ekledim ve eşik kuralını sevkiyata bağladım.
+
+```mermaid
+erDiagram
+    anomaly_thresholds ||--o{ shipments : "kural"
+    shipments ||--o{ measurements : "içerir"
+    sensors ||--o{ measurements : "üretir"
+
+    anomaly_thresholds {
+        SERIAL rule_id PK
+        VARCHAR(50) product_type
+        NUMERIC min_safe_temp
+        NUMERIC max_safe_temp
+        NUMERIC critical_high_temp
+        TIMESTAMP updated_at
+    }
+    shipments {
+        VARCHAR(10) shipment_id PK
+        INTEGER rule_id FK
+    }
+    sensors {
+        VARCHAR(50) sensor_id PK
+        VARCHAR(20) compartment_zone
+        VARCHAR(20) vertical_level
+        TIMESTAMP installed_at
+    }
+    measurements {
+        BIGSERIAL id PK
+        VARCHAR(10) shipment_id FK
+        VARCHAR(50) sensor_id FK
+        TIMESTAMP measurement_time
+        NUMERIC temp_c "NULL = donanım arızası"
+    }
+```
+
+İlişkiler:
+
+- `anomaly_thresholds` - `shipments` (1-N): Bir kural, en az sıfır, en çok sınırsız sevkiyata uygulanır; bir sevkiyat, tam olarak bir kurala bağlıdır.
+- `shipments` - `measurements` (1-N): Bir sevkiyat, en az sıfır, en çok sınırsız ölçüme sahiptir; bir ölçüm, tam olarak bir sevkiyata aittir.
+- `sensors` - `measurements` (1-N): Bir sensör, en az sıfır, en çok sınırsız ölçüm üretir; bir ölçüm, tam olarak bir sensörden gelir.
+
+`measurements` tablosunda (`shipment_id`, `sensor_id`, `measurement_time`) üçlüsü ayrıca `UNIQUE` tutulacak; böylece aynı ölçüm iki kez yüklenemez.
+
+Sevkiyat ile sensör arasında dolaylı bir M-N ilişki var (bir sevkiyatta dokuz sensör ölçer, bir sensör altı sevkiyatta kullanılır). Bu ilişkiyi `measurements` tablosu taşıyor; ara tablo görevi görüyor ve ek olarak zaman ve sıcaklık verisini tutuyor.
+
+### 2.2 Normalizasyon notu
+
+| Tablo | Neden ayrıldı / ayrılmadı | Form |
+|---|---|---|
+| Ham Parquet (37 sütun) | Dokuz sensör sütunu yan yana duruyordu (`Front_Top` ... `Rear_Bottom`), bu tekrarlayan bir gruptu. `pandas.melt()` ile her satıra tek ölçüm gelecek şekilde `measurements` oluşturuldu. | 1NF'ye ulaşmak için dönüştürüldü |
+| `measurements` | Aday anahtar (`shipment_id`, `sensor_id`, `measurement_time`) sıcaklığı belirliyor. Her sütun tek değer taşıyor, `temp_c` tek bir ölçüm. Bölge ve seviye bu tabloda tutulsaydı yalnızca `sensor_id`'ye bağlı olurdu (kısmi bağımlılık), o yüzden `sensors`'a taşındı. | 1NF ve 2NF |
+| `sensors` | `compartment_zone` ve `vertical_level` sensörün kimliğiyle belirleniyor (`Front_Top` ise `Front` ve `Top`). Bölge seviyeyi belirlemiyor, seviye de bölgeyi belirlemiyor, yani aralarında geçişli bağımlılık yok. | 3NF |
+| `shipments` ve `anomaly_thresholds` | Eşik değerleri (`min_safe_temp`, `max_safe_temp`, `critical_high_temp`) ürün kuralına bağlı. `shipments` içinde tutulsaydı `shipment_id` → `rule_id` → eşikler zinciriyle geçişli bağımlılık oluşurdu. Bu yüzden kural ayrı tabloda, sevkiyat ona `rule_id` ile bağlanıyor. | 3NF |
+
+Bir sütunun hangisini belirlediği: `sensor_id` → `compartment_zone`, `vertical_level`; `shipment_id` → `rule_id`; `rule_id` → üç eşik değeri.
+
+### 2.3 İki JOIN sorusu
+
+**Soru 1.** Her ölçümün hangi bölgedeki sensörden geldiği bilinirse, 8.0°C üstü kritik ihlaller bölgelere (`Front`, `Middle`, `Rear`) göre nasıl dağılıyor?
+
+- Birleşen tablolar: `measurements m` ve `sensors s`
+- Birleştirme koşulu: `m.sensor_id = s.sensor_id`
+- JOIN türü: `INNER JOIN`. Her ölçümün `sensor_id` değeri zorunlu ve `sensors` tablosunda karşılığı var, bu yüzden hiçbir satır kaybolmaz.
+- Çıktı: `s.compartment_zone` başına `count(*)` (`WHERE m.temp_c > 8.0`).
+
+**Soru 2.** Hiç ölçüm kaydı olmayan sensör veya sevkiyat var mı?
+
+- Birleşen tablolar: `sensors s` ve `measurements m`
+- Birleştirme koşulu: `s.sensor_id = m.sensor_id`
+- JOIN türü: `LEFT JOIN`, ardından `WHERE m.id IS NULL`. Soldaki tablo `sensors` olmalı, çünkü aranan şey sağ tarafta eşleşmesi olmayan sensör. `INNER JOIN` kullansaydım hiç ölçüm üretmemiş sensör sonuçtan kaybolurdu ve soruyu cevaplayamazdım. Aynı soru `shipments` için `shipments s LEFT JOIN measurements m ON s.shipment_id = m.shipment_id` ile sorulabilir.
+
