@@ -166,7 +166,7 @@ Sevkiyat ile sensör arasında dolaylı bir M-N ilişki var (bir sevkiyatta doku
 | Ham Parquet (37 sütun) | Dokuz sensör sütunu yan yana duruyordu (`Front_Top` ... `Rear_Bottom`), bu tekrarlayan bir gruptu. `pandas.melt()` ile her satıra tek ölçüm gelecek şekilde `measurements` oluşturuldu. | 1NF'ye ulaşmak için dönüştürüldü |
 | `measurements` | Aday anahtar (`shipment_id`, `sensor_id`, `measurement_time`) sıcaklığı belirliyor. Her sütun tek değer taşıyor, `temp_c` tek bir ölçüm. Bölge ve seviye bu tabloda tutulsaydı yalnızca `sensor_id`'ye bağlı olurdu (kısmi bağımlılık), o yüzden `sensors`'a taşındı. | 1NF ve 2NF |
 | `sensors` | `compartment_zone` ve `vertical_level` sensörün kimliğiyle belirleniyor (`Front_Top` ise `Front` ve `Top`). Bölge seviyeyi belirlemiyor, seviye de bölgeyi belirlemiyor, yani aralarında geçişli bağımlılık yok. | 3NF |
-| `shipments` ve `anomaly_thresholds` | Eşik değerleri (`min_safe_temp`, `max_safe_temp`, `critical_high_temp`) ürün kuralına bağlı. `measurements` içinde tutulsaydı `measurement_time` → `shipment_id` → `rule_id` → eşikler zinciriyle geçişli bağımlılık oluşurdu. Bu yüzden kural ayrı tabloda, sevkiyat ona `rule_id` ile bağlanıyor. | 3NF |
+| `shipments` ve `anomaly_thresholds` | Eşik değerleri (`min_safe_temp`, `max_safe_temp`, `critical_high_temp`) ürün kuralına bağlı. `shipments` içinde tutulsaydı `shipment_id` → `rule_id` → eşikler zinciriyle geçişli bağımlılık oluşurdu. Bu yüzden kural ayrı tabloda, sevkiyat ona `rule_id` ile bağlanıyor. | 3NF |
 
 Bir sütunun hangisini belirlediği: `sensor_id` → `compartment_zone`, `vertical_level`; `shipment_id` → `rule_id`; `rule_id` → üç eşik değeri.
 

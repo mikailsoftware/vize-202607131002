@@ -8,9 +8,9 @@
 
 **Kullandığım veritabanı:** ☐ `llm_ops`  ☒ `robot_fleet`
 
-**PR bağlantısı:** `https://github.com/`mikailsoftware/vize-202607131002/pull/2
+**PR bağlantısı:** https://github.com/mikailsoftware/vize-202607131002/pull/2
 
-**Commit sayısı:** 5
+**Commit sayısı:** 7
 
 ---
 
@@ -26,7 +26,7 @@ ERD'de en çok düşündüren karar `measurements` tablosunun anahtarı oldu. İ
 
 ---
 
-## 5. Yapay zeka kullanım beyanı
+## 3. Yapay zeka kullanım beyanı
 
 ☐ Bu ödevde yapay zeka aracı **kullanmadım.**
 
